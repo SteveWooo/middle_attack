@@ -26,7 +26,7 @@ Config = {
 	# "phone_mac" : "1c:9e:46:ef:e2:a7"
 	"phone_mac" : ""
 }
-# 
+
 Config['phone_mac'] = getmacbyip(Config["phone_ip"])
 
 def trick():
