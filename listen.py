@@ -33,7 +33,7 @@ def callback(pkt):
 			print(url)
 			print(payload.Headers)
 			print("=====")
-			log_str = time.time() + "\nurl : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
+			log_str = "url : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
 			log(log_str)
 		if payload.Method == "POST":
 			url = "http://{0}{1}".format(payload.Host, payload.Path)
@@ -41,7 +41,7 @@ def callback(pkt):
 			print(url)
 			print(payload.Headers)
 			print("=====")
-			log_str = time.time() + "\nurl : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
+			log_str = "url : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
 			log(log_str)
 
 result = sniff(filter="tcp and port 80", prn=callback, iface=argv["interface"])
