@@ -12,6 +12,7 @@ from scapy.all import (
 	TCP,
 	IP
 )
+import scapy_http.http as HTTP
 
 argv = {
 	"interface" : "wlan0"

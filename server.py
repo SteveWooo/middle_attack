@@ -1,4 +1,3 @@
-import scapy_http.http as HTTP
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
