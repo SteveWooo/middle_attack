@@ -13,6 +13,16 @@ from scapy.all import (
 	IP
 )
 import scapy_http.http as HTTP
+
+argv = {
+	"interface" : "wlan0"
+}
+
+def log(data):
+	file = open("./logs/listen.html", 'a+');
+	file.write(data);
+	file.close();
+
 #
 def callback(pkt):
 	if HTTP.HTTPRequest in pkt:
@@ -20,8 +30,18 @@ def callback(pkt):
 		if payload.Method == "GET":
 			url = "http://{0}{1}".format(payload.Host, payload.Path)
 			# if url.find(".jpg") > 0:
-			print url
-			print payload.Headers
-			print "====="
+			print(url)
+			print(payload.Headers)
+			print("=====")
+			log_str = time.time() + "\nurl : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
+			log(log_str)
+		if payload.Method == "POST":
+			url = "http://{0}{1}".format(payload.Host, payload.Path)
+			# if url.find(".jpg") > 0:
+			print(url)
+			print(payload.Headers)
+			print("=====")
+			log_str = time.time() + "\nurl : <a src='"+url+"'>"+url+"</a>\n" + payload.Headers + "\n==================================";
+			log(log_str)
 
-result = sniff(filter="tcp and port 80", prn=callback, iface="en0")
+result = sniff(filter="tcp and port 80", prn=callback, iface=argv["interface"])
