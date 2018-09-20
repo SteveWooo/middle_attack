@@ -65,9 +65,9 @@ def callback(pkt):
 			print("http://{0}{1}".format(payload.Host, payload.Path))
 		
 
-# while 1:
-# 	trick()
-# 	time.sleep(5)
+while 1:
+	trick()
+	time.sleep(5)
 
 # result = sniff(filter="tcp and port 80", prn=callback, iface="en0")
 # wrpcap("demo.pcap", result)
